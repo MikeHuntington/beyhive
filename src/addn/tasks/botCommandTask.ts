@@ -18,7 +18,7 @@ export class BotCommandTask implements ITask {
   // create a worker pool using an external worker script
   private __dirname = path.resolve(path.dirname(''))
   private pool = workerpool.pool(
-    this.__dirname + '/dist/addn/workers/botCommandService.js',
+    this.__dirname + '/dist/src/addn/workers/botCommandService.js',
   )
 
   public run = (interval: number, agent: BskyAgent) => {
