@@ -3,8 +3,7 @@ import { schedules } from '@trigger.dev/sdk/v3'
 export const firstScheduledTask = schedules.task({
   id: 'first-scheduled-task',
   cron: {
-    //5am every day Tokyo time
-    pattern: '*/1 * * * *',
+    pattern: '* */1 * * *',
     timezone: 'America/New_York',
   },
   run: async (payload) => {
