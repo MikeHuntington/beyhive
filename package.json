@@ -12,7 +12,7 @@
     "publishFeed": "tsx scripts/publishFeedGen.ts",
     "unpublishFeed": "tsx scripts/unpublishFeedGen.ts",
     "trigger:dev": "npx trigger.dev@latest dev",
-    "start": "node --no-warnings ./dist/index.js",
+    "start": "node ./dist/src/index.js",
     "build": "tsc && tsc-alias"
   },
   "dependencies": {
