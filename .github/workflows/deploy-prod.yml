@@ -31,13 +31,3 @@ jobs:
           registry: docker.io
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
-
-      - name: 🚀 Deploy Trigger.dev
-        env:
-          TRIGGER_ACCESS_TOKEN: ${{ secrets.TRIGGER_ACCESS_TOKEN }}
-          # required when self-hosting
-          TRIGGER_API_URL: ${{ secrets.TRIGGER_API_URL }}
-        # deploy with additional flags
-        run: |
-          npx trigger.dev@3.3.17 login -a https://trigger.mikehuntington.com
-          npx trigger.dev@3.3.17 deploy --self-hosted --push
