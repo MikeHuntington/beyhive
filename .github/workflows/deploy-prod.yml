@@ -21,8 +21,8 @@ jobs:
         run: npm install
 
       # docker setup - part 1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      #- name: Set up Docker Buildx
+      #  uses: docker/setup-buildx-action@v3
 
       # docker setup - part 2
       - name: login to docker registry
@@ -31,6 +31,12 @@ jobs:
           registry: docker.io
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: mellomike/beyhive-feed
 
       - name: Build and push Docker image
         id: push
