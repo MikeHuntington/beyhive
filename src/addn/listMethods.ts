@@ -25,6 +25,10 @@ export const getListMembers = async (
       members.push(member.subject.did)
       uriMap[member.subject.did] = member.uri
     })
+    // Add a delay to avoid rate limiting
+    if (current_cursor !== undefined && current_cursor !== '') {
+      await new Promise((resolve) => setTimeout(resolve, 60000)) // 500ms delay
+    }
   } while (current_cursor !== undefined && current_cursor !== '')
 
   return { members, uriMap }
